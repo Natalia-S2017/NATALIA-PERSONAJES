@@ -32,4 +32,4 @@ export default function NitrusBrioModel({ autoSpin = false }: { autoSpin?: boole
   )
 }
 
-useGLTF.preload(`${import.meta.env.BASE_URL}nitrus _brio.glb`)
+useGLTF.preload(`${import.meta.env.BASE_URL}nitrus_brio.glb`)
