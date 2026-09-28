@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+﻿import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import { clone as skeletonClone } from 'three/examples/jsm/utils/SkeletonUtils.js'
@@ -6,7 +6,7 @@ import * as THREE from 'three'
 
 export default function CrashModel({ autoSpin = false }: { autoSpin?: boolean }) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/crash.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}crash.glb`)
   // SkeletonUtils.clone rebindea correctamente el skeleton del SkinnedMesh
   const clone = useMemo(() => skeletonClone(scene), [scene])
 
@@ -23,4 +23,4 @@ export default function CrashModel({ autoSpin = false }: { autoSpin?: boolean })
   )
 }
 
-useGLTF.preload('/crash.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}crash.glb`)

@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+﻿import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
@@ -10,7 +10,7 @@ interface Props {
 
 export default function MarioModel({ autoSpin = false }: Props) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/mario.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}mario.glb`)
   const clone = useMemo(() => scene.clone(), [scene])
 
   const { fitScale, fitPos } = useMemo(() => {
@@ -37,4 +37,4 @@ export default function MarioModel({ autoSpin = false }: Props) {
   )
 }
 
-useGLTF.preload('/mario.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}mario.glb`)

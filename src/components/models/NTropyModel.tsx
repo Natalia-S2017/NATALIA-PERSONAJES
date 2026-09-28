@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react'
+﻿import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import { clone as skeletonClone } from 'three/examples/jsm/utils/SkeletonUtils.js'
@@ -6,7 +6,7 @@ import * as THREE from 'three'
 
 export default function NTropyModel({ autoSpin = false }: { autoSpin?: boolean }) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/n._tropy.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}n._tropy.glb`)
   const clone = useMemo(() => skeletonClone(scene), [scene])
 
   useFrame(() => {
@@ -20,4 +20,4 @@ export default function NTropyModel({ autoSpin = false }: { autoSpin?: boolean }
   )
 }
 
-useGLTF.preload('/n._tropy.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}n._tropy.glb`)

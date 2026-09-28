@@ -1,11 +1,11 @@
-import { useRef, useMemo } from 'react'
+﻿import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
 export default function HongoModel({ autoSpin = false }: { autoSpin?: boolean }) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/hongo.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}hongo.glb`)
   const clone = useMemo(() => scene.clone(), [scene])
 
   const { fitScale, fitPos } = useMemo(() => {
@@ -32,4 +32,4 @@ export default function HongoModel({ autoSpin = false }: { autoSpin?: boolean })
   )
 }
 
-useGLTF.preload('/hongo.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}hongo.glb`)

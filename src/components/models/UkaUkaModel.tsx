@@ -1,11 +1,11 @@
-import { useRef, useMemo } from 'react'
+﻿import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 import * as THREE from 'three'
 
 export default function UkaUkaModel({ autoSpin = false }: { autoSpin?: boolean }) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/uka_uka.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}uka_uka.glb`)
   const clone = useMemo(() => scene.clone(), [scene])
 
   const { fitScale, fitPos } = useMemo(() => {
@@ -32,4 +32,4 @@ export default function UkaUkaModel({ autoSpin = false }: { autoSpin?: boolean }
   )
 }
 
-useGLTF.preload('/uka_uka.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}uka_uka.glb`)

@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState } from 'react'
+﻿import { Suspense, useRef, useState } from 'react'
 import { useGLTF, Html } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
@@ -13,7 +13,7 @@ interface HongoProps {
 // Hongo interactivo: clic para girar + descripción
 function Hongo({ position, lang = 'es', onFocus, yOffset = 0 }: HongoProps) {
   const groupRef = useRef<THREE.Group>(null)
-  const { scene } = useGLTF('/hongo.glb')
+  const { scene } = useGLTF(`${import.meta.env.BASE_URL}hongo.glb`)
   const [spinning, setSpinning] = useState(false)
   const [selected, setSelected] = useState(false)
 
@@ -74,7 +74,7 @@ function Hongo({ position, lang = 'es', onFocus, yOffset = 0 }: HongoProps) {
   )
 }
 
-useGLTF.preload('/hongo.glb')
+useGLTF.preload(`${import.meta.env.BASE_URL}hongo.glb`)
 
 // Entorno del Reino Champiñón
 export default function MarioEnvironment({ lang = 'es', onFocus }: { lang?: 'es' | 'en'; onFocus?: (pos: [number, number, number]) => void }) {
