@@ -487,19 +487,19 @@ export default function CharacterPage({ character }: Props) {
       style={{
         '--char-color': character.color,
         ...(character.id === 'mario' && {
-          backgroundImage: 'url(/fondo_mario.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}fondo_mario.jpg)`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }),
         ...(character.id === 'pacman' && {
-          backgroundImage: 'url(/pacman-wall.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}pacman-wall.jpg)`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
         }),
         ...(character.id === 'crash' && {
-          backgroundImage: 'url(/crashs_fondo.webp)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}crashs_fondo.webp)`,
           backgroundSize: '100% 100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

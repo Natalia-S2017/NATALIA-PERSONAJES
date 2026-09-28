@@ -3,10 +3,11 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stars } from '@react-three/drei'
 import { useLang } from '../context/LanguageContext'
 
+const base = import.meta.env.BASE_URL
 const chars = [
-  { label: 'Mario',          route: '/mario',  color: '#E52521', img: '/mario_png.png' },
-  { label: 'Pac-Man',        route: '/pacman', color: '#FFE000', img: '/pacman_png.png' },
-  { label: 'Crash Bandicoot',route: '/crash',  color: '#F97316', img: '/crash_png.png' },
+  { label: 'Mario',          route: '/mario',  color: '#E52521', img: `${base}mario_png.png` },
+  { label: 'Pac-Man',        route: '/pacman', color: '#FFE000', img: `${base}pacman_png.png` },
+  { label: 'Crash Bandicoot',route: '/crash',  color: '#F97316', img: `${base}crash_png.png` },
 ]
 
 export default function IntroPage() {
