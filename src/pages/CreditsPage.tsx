@@ -38,7 +38,7 @@ export default function CreditsPage() {
           <dl className="credits-grid">
             <div className="credits-kv">
               <dt>{t('Autora', 'Author')}</dt>
-              <dd>Natalia</dd>
+              <dd>Nathalia Arce Hernández</dd>
             </div>
             <div className="credits-kv">
               <dt>{t('Institución', 'Institution')}</dt>
