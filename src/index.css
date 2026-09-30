@@ -946,15 +946,56 @@ main { width: 100%; height: 100%; padding-top: var(--header-h); }
   }
   .char-name { font-size: 1.6rem; }
 
+  /* ── Three-col → columna única: carrusel arriba, desc abajo ── */
+  .character-page { overflow-y: auto !important; }
+
+  .three-col-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .col-center {
+    width: 100%;
+    order: 1;
+    min-height: 380px;
+  }
+
+  .col-right {
+    width: 100%;
+    max-width: 600px;
+    order: 2;
+  }
+
+  .col-left {
+    width: 100%;
+    max-width: 600px;
+    order: 3;
+    font-size: 0.8rem;
+  }
+
+  /* desc panel ocupa todo el ancho disponible */
+  .col-right .char-desc-panel {
+    width: 100%;
+    max-height: none;
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+  }
+
   /* ── Carrusel y cards ── */
   .char-card {
-    width: 280px;
-    height: 400px;
-  }
-  .carousel-area { max-width: 680px; }
-  .char-desc-panel {
     width: 260px;
-    max-height: 400px;
+    height: 360px;
+  }
+  .carousel-area  { max-width: 100%; }
+  .char-desc-panel {
+    width: 100%;
+    max-height: none;
     padding: 20px 16px;
   }
 
@@ -980,78 +1021,4 @@ main { width: 100%; height: 100%; padding-top: var(--header-h); }
 
   /* ── Character page ── */
   .character-page { flex-direction: row; }
-}
-
-/* ── Tablet portrait: three-col → 2 col ── */
-@media (min-width: 701px) and (max-width: 1024px) and (orientation: portrait) {
-
-  .three-col-layout {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 12px;
-    padding: 12px;
-    overflow-y: auto;
-  }
-  .col-center { grid-column: 1 / -1; order: -1; min-height: 380px; }
-  .col-left   { order: 1; }
-  .col-right  { order: 2; }
-}
-
-/* ── Tablet landscape: fix carrusel vs desc panel ── */
-@media (min-width: 701px) and (max-width: 1024px) and (orientation: landscape) {
-
-  .character-page { overflow-y: auto !important; }
-
-  .three-col-layout {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    gap: 0;
-    padding: 0;
-    height: 100%;
-  }
-
-  .col-left {
-    width: 220px;
-    flex-shrink: 0;
-    overflow-y: auto;
-    padding: 16px 12px;
-    background: var(--bg2);
-    border-right: 1px solid var(--border);
-    font-size: 0.78rem;
-    order: 1;
-  }
-
-  .col-center {
-    flex: 1;
-    min-width: 0;
-    order: 2;
-    position: relative;
-  }
-
-  .col-right {
-    width: 240px;
-    flex-shrink: 0;
-    overflow-y: auto;
-    padding: 16px 12px;
-    background: var(--bg2);
-    border-left: 1px solid var(--border);
-    order: 3;
-  }
-
-  .col-right .char-desc-panel {
-    width: 100%;
-    max-height: none;
-    opacity: 1;
-    transform: none;
-    pointer-events: all;
-    border: none;
-    background: transparent;
-    padding: 0;
-  }
-
-  .char-card {
-    width: 240px;
-    height: 340px;
-  }
 }
