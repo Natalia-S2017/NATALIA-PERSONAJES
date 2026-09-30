@@ -934,67 +934,74 @@ main { width: 100%; height: 100%; padding-top: var(--header-h); }
 ══════════════════════════════ */
 @media (min-width: 701px) and (max-width: 1024px) {
 
-  /* ── Header: reducir padding, nav visible ── */
+  /* ── Header ── */
   .app-header { padding: 0 16px; }
-  .nav-link    { font-size: 0.72rem; padding: 5px 10px; }
+  .nav-link   { font-size: 0.72rem; padding: 5px 9px; }
 
-  /* ── three-col-layout → 2 col: izq+der al 50%, center abajo ── */
-  .three-col-layout {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 16px;
-    align-items: start;
-    padding: 16px;
-    overflow-y: auto;
-  }
-  .col-center {
-    grid-column: 1 / -1; /* ocupa las 2 columnas */
-    order: -1;           /* sube al tope */
-    min-height: 420px;
-  }
-  .col-left  { order: 1; }
-  .col-right { order: 2; }
-
-  /* ── Panel lateral: ancho reducido ── */
+  /* ── Panel lateral de personaje/juego ── */
   .char-info-panel {
-    width: 280px;
-    padding: 24px 16px 32px;
+    width: 260px;
+    padding: 24px 14px 32px;
+    font-size: 0.85rem;
+  }
+  .char-name { font-size: 1.6rem; }
+
+  /* ── Three-col-layout: colapsa a 2 col en portrait, mantiene 3 en landscape ── */
+  @media (orientation: portrait) {
+    .three-col-layout {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 12px;
+      padding: 12px;
+      overflow-y: auto;
+    }
+    .col-center { grid-column: 1 / -1; order: -1; min-height: 380px; }
+    .col-left   { order: 1; }
+    .col-right  { order: 2; }
   }
 
-  /* ── Char card: más pequeña ── */
+  @media (orientation: landscape) {
+    .three-col-layout {
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 16px;
+      padding: 12px;
+    }
+    .col-left  { font-size: 0.8rem; }
+    .col-right { font-size: 0.8rem; }
+  }
+
+  /* ── Carrusel y cards ── */
   .char-card {
-    width: 300px;
-    height: 420px;
+    width: 280px;
+    height: 400px;
+  }
+  .carousel-area  { max-width: 680px; }
+  .char-desc-panel {
+    width: 260px;
+    max-height: 400px;
+    padding: 20px 16px;
   }
 
-  /* ── Desc panel: ajuste de ancho ── */
-  .char-desc-panel { width: 280px; }
-
-  /* ── Card page: reducir padding ── */
-  .char-card-page {
-    padding: 16px 16px;
-    gap: 12px;
-  }
-
-  /* ── Char cards row: apilar si no caben ── */
+  /* ── Card page ── */
+  .char-card-page { padding: 14px 16px; gap: 10px; }
   .char-cards-row {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
   }
+  .game-header-title { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
+  .game-header-desc  { font-size: 0.82rem; }
 
-  /* ── Credits: 1 col ── */
-  .credits-grid { grid-template-columns: 1fr; }
-  .credits-container { padding: 40px 20px 80px; }
+  /* ── Intro ── */
+  .intro-char-img         { width: 150px; height: 195px; }
+  .intro-char-placeholder { width: 130px; height: 175px; }
+  .intro-char-cards       { gap: 20px; bottom: 3%; }
+  .intro-char-card-label  { font-size: 0.62rem; }
 
-  /* ── Intro: imagen de chars un poco más pequeña ── */
-  .intro-char-img {
-    width: 160px;
-    height: 210px;
-  }
-  .intro-char-placeholder {
-    width: 140px;
-    height: 185px;
-  }
-  .intro-char-cards { gap: 24px; }
+  /* ── Credits ── */
+  .credits-grid      { grid-template-columns: 1fr; }
+  .credits-container { padding: 36px 18px 72px; }
+
+  /* ── Character page (layout izq+canvas) ── */
+  .character-page { flex-direction: row; }
 }
